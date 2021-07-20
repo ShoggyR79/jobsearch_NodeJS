@@ -1,0 +1,421 @@
+{
+	"info": {
+		"_postman_id": "55a0a34b-604d-4294-b290-4bfc0177b6e4",
+		"name": "cyber-vietnamwork",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin CRUD",
+			"item": [
+				{
+					"name": "admin sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"khaidu2002@gmail.com\",\r\n    \"password\" : \"testing123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/admin/sign-in",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get admin list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get admin detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Du Duong\",\r\n    \"email\": \"khaidu2002@gmail.com\",\r\n    \"password\":\"testing123\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/admin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company CRUD",
+			"item": [
+				{
+					"name": "company sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"cybersoft@gmail.com\",\r\n    \"password\" : \"cyber123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/company/sign-in",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get company list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get company detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Cybersoft\",\r\n    \"email\": \"cybersoft@gmail.com\",\r\n    \"password\":\"cyber123\",\r\n    \"location\": \"Ho Chi Minh, Vietnam\",\r\n    \"description\": \"Đào tạo chuyên gia lập trình\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/company",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update company",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/comapny/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comapny",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete company",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Applicant CRUD",
+			"item": [
+				{
+					"name": "applicant sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"khaidu2002@gmail.com\",\r\n    \"password\" : \"testing123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/applicant/sign-in",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"applicant",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get applicant list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/applicant",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"applicant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get applicant detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/applicant/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"applicant",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create applicant",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let birthday = new Date(Date.UTC(1983, 5, 2, 10));\r",
+									"pm.environment.set('birthdayDate', birthday.toLocaleDateString());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Du\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"joemama@gmail.com\",\r\n    \"password\":\"bidenjoe123\",\r\n    \"location\": \"Washington, USA\",\r\n    \"birthday\": \"{{birthdayDate}}\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/applicant",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"applicant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update applicant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"khaidu2002@gmail.com\",\r\n    \"location\": \"Ho Chi Minh, Vietnam\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/applicant/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"applicant",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete applicant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/applicant/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"applicant",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": []
+		}
+	]
+}
