@@ -4,7 +4,8 @@
     "password": "lastwater8",
     "database": "database_vietnamwork",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "PORT": 3000
   },
   "test": {
     "username": "root",
