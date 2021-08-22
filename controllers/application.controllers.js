@@ -1,7 +1,7 @@
 const { Application } = require("../models")
-const { development } = require("../config/config.json");
+const { production } = require("../config/config.json");
 
-const domain = `http://${development.host}:${development.PORT}/`
+const domain = `http://${production.host}:${process.env.PORT}/`
 
 
 const getApplicationById = async(req, res) =>{

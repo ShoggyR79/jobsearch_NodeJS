@@ -1,7 +1,6 @@
-const { development } = require("../config/config.json");
+const { production } = require("../config/config.json");
 
-const domain = `http://${development.host}:${development.PORT}/`
-
+const domain = `http://${production.host}:${process.env.PORT}/`
 
 const bcryptjs = require("bcryptjs");
 const { Company } = require("../models");
