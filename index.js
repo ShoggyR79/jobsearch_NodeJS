@@ -17,7 +17,7 @@ app.use(express.json())
 app.use("/api", rootRouter)
 
 
-const port = development.PORT;
-app.listen(port, ()=>{
+const port = process.env .PORT || development.PORT;
+app.listen(port, () => {
     console.log(`App listening on port ${port}`)
 })
