@@ -1,24 +1,25 @@
 {
   "development": {
-    "username": "b47a2ca0b6230c",
-    "password": "72790895",
-    "database": "heroku_6cfa7409dcc0684",
-    "host": "us-cdbr-east-04.cleardb.com",
+    "username": "root",
+    "password": "lastwater8",
+    "database": "database_vietnamwork",
+    "host": "127.0.0.1",
     "dialect": "mysql",
-    "PORT": 3000
+    "PORT": 8070,
+    "jwtSignature": "cybersoft"
   },
   "test": {
-    "username": "b47a2ca0b6230c",
-    "password": "72790895",
-    "database": "heroku_6cfa7409dcc0684",
-    "host": "us-cdbr-east-04.cleardb.com",
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "b47a2ca0b6230c",
-    "password": "72790895",
-    "database": "heroku_6cfa7409dcc0684",
-    "host": "us-cdbr-east-04.cleardb.com",
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }

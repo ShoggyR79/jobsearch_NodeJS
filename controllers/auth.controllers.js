@@ -1,7 +1,9 @@
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const secretKey = "cybersoft"
+const { development } = require("../config/config.json");
+
+const secretKey = development.jwtSignature
 
 
 const signIn = (Model) => async(req, res) =>{

@@ -1,14 +1,30 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Companies', {
+    await queryInterface.createTable('References', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      profileId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references:{
+          model: "Profiles",
+          key:"id"
+        }
+      },
+      fullName: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      position: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      company: {
         allowNull: false,
         type: Sequelize.STRING
       },
@@ -16,28 +32,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      password: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      location: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      description: {
-        type: Sequelize.STRING
-      },
-      status: {
-        allowNull: false,
-        type: Sequelize.STRING,
-        defaultValue: "OPERATING"
-      },
-      role: {
-        allowNull: false,
-        type: Sequelize.STRING,
-        defaultValue: "COMPANY"
-      },
-      image: {
+      phoneNum: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -47,13 +42,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      destroyTime:{
-        type: Sequelize.DATE
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Companies');
+    await queryInterface.dropTable('References');
   }
 };

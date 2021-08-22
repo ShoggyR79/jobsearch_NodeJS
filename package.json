@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "migrate": "sequelize db:migrate"
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -15,8 +14,7 @@
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.2",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.6.5",
-    "sequelize-cli": "^6.2.0"
+    "sequelize": "^6.6.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.12",

@@ -3,27 +3,26 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Admin extends Model {
+  class Language extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate({Profile}) {
       // define association here
+      this.belongsTo(Profile,{
+        foreignKey:"profileId"
+      })
     }
   };
-  Admin.init({
+  Language.init({
+    profileId: DataTypes.INTEGER,
     name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    role: DataTypes.STRING,
-    image: DataTypes.STRING
+    proficiency: DataTypes.INTEGER
   }, {
     sequelize,
-    paranoid: true,
-    deletedAt: 'destroyTime',
-    modelName: 'Admin',
+    modelName: 'Language',
   });
-  return Admin;
+  return Language;
 };

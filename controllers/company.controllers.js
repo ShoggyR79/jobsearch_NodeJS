@@ -1,6 +1,27 @@
-const bcryptjs = require("bcryptjs");
-const { Company } = require("../models")
+const { development } = require("../config/config.json");
 
+const domain = `http://${development.host}:${development.PORT}/`
+
+
+const bcryptjs = require("bcryptjs");
+const { Company } = require("../models");
+
+const searchCompanies = async (req, res) => {
+    const { name } = req.query
+    try {
+        const result = await Company.findAll({
+            where: {
+                name: {
+                    [Op.like]: `%${name}%`
+                },
+
+            },
+        })
+        res.status(200).send(result)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
 const getCompanies = async (req, res) => {
     try {
         const companiesArr = await Company.findAll();
@@ -9,6 +30,42 @@ const getCompanies = async (req, res) => {
         res.status(500).send(error);
     }
 };
+
+
+const getCompaniesPaginate = async (req, res) => {
+    let defaultPage = 0;
+    let defaultPageSize = 10;
+    let { page, pageSize } = req.query;
+    if (!page || page < 0) {
+        page = defaultPage;
+    } else {
+        page = parseInt(page) - 1
+    }
+    if (!pageSize || pageSize < 0) {
+        pageSize = defaultPageSize
+    } else {
+        pageSize = parseInt(pageSize)
+    }
+
+    try {
+        const companyList = await Company.findAndCountAll({
+            offset: pageSize * page,
+            limit: pageSize
+        })
+        const returnObject = {
+            page: page + 1,
+            pageSize,
+            totalPages: Math.ceil(companyList.count / pageSize),
+            totalCount: companyList.count,
+            applicant: companyList.rows
+        }
+        res.status(200).send(returnObject)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
+
+
 
 const getCompanyDetail = async (req, res) => {
     const { id } = req.params;
@@ -69,10 +126,26 @@ const updateCompany = async (req, res) => {
 }
 
 
+const uploadAvatar = async (req, res) => {
+    const { file, user } = req;
+    const urlImage = domain + file.path;
+    // lưu link hinh xuống db
+    try {
+        const companyDetail = await Company.findByPk(user.id);
+        companyDetail.image = urlImage;
+        await companyDetail.save();
+        res.send(companyDetail);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
 module.exports = {
     getCompanies,
     getCompanyDetail,
     createCompany,
     removeCompany,
-    updateCompany
+    updateCompany,
+    uploadAvatar,
+    searchCompanies,
+    getCompaniesPaginate
 }

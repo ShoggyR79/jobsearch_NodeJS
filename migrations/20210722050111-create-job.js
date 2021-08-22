@@ -1,22 +1,22 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Companies', {
+    await queryInterface.createTable('Jobs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      companyId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Companies",
+          key: "id"
+        }
+      },
       name: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      email: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      password: {
         allowNull: false,
         type: Sequelize.STRING
       },
@@ -24,21 +24,31 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      address: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      position: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       description: {
+        allowNull: false,
+        type: Sequelize.TEXT
+      },
+      requirements: {
+        allowNull: false,
+        type: Sequelize.TEXT
+      },
+      skills: {
         type: Sequelize.STRING
       },
-      status: {
+      language: {
         allowNull: false,
-        type: Sequelize.STRING,
-        defaultValue: "OPERATING"
-      },
-      role: {
-        allowNull: false,
-        type: Sequelize.STRING,
-        defaultValue: "COMPANY"
-      },
-      image: {
         type: Sequelize.STRING
+      },
+      benefits: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
@@ -48,12 +58,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      destroyTime:{
+      destroyTime: {
         type: Sequelize.DATE
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Companies');
+    await queryInterface.dropTable('Jobs');
   }
 };

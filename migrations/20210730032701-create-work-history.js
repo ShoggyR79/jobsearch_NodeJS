@@ -1,44 +1,43 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Companies', {
+    await queryInterface.createTable('WorkHistories', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      profileId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references:{
+          model:"Profiles",
+          key:"id"
+        }
+      },
+      position: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      email: {
+      company: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      password: {
+      fromDate: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       },
-      location: {
+      toDate: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.DATE
+      },
+      isCurrentJob: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN
       },
       description: {
-        type: Sequelize.STRING
-      },
-      status: {
-        allowNull: false,
-        type: Sequelize.STRING,
-        defaultValue: "OPERATING"
-      },
-      role: {
-        allowNull: false,
-        type: Sequelize.STRING,
-        defaultValue: "COMPANY"
-      },
-      image: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
@@ -47,13 +46,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      destroyTime:{
-        type: Sequelize.DATE
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Companies');
+    await queryInterface.dropTable('WorkHistories');
   }
 };

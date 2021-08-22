@@ -45,6 +45,9 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      destroyTime:{
+        type: Sequelize.DATE
       }
     });
   },

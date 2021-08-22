@@ -1,43 +1,42 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Companies', {
+    await queryInterface.createTable('Education', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      profileId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references:{
+          model:"Profiles",
+          key:"id"
+        }
+      },
+      subject: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      email: {
+      school: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      password: {
+      qualifications: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      location: {
+      fromDate: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       },
-      description: {
-        type: Sequelize.STRING
-      },
-      status: {
+      toDate: {
         allowNull: false,
-        type: Sequelize.STRING,
-        defaultValue: "OPERATING"
+        type: Sequelize.DATE
       },
-      role: {
-        allowNull: false,
-        type: Sequelize.STRING,
-        defaultValue: "COMPANY"
-      },
-      image: {
+      achievements: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -47,13 +46,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      destroyTime:{
-        type: Sequelize.DATE
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Companies');
+    await queryInterface.dropTable('Education');
   }
 };

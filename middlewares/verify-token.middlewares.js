@@ -1,9 +1,11 @@
 const jwt = require("jsonwebtoken");
+const { development } = require("../config/config.json");
+
+const secretKey = development.jwtSignature
 
 const authenticate = (req, res, next) => {
   const token = req.header("token");
   try {
-    const secretKey = "cybersoft";
     const decode = jwt.verify(token, secretKey);
     req.user = decode;
     next();
