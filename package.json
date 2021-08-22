@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "migrate": "sequelize db:migrate"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
