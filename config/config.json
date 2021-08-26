@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "lastwater8",
-    "database": "database_vietnamwork",
+    "database": "...",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "PORT": 8070,
